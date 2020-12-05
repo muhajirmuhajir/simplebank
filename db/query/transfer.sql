@@ -11,5 +11,5 @@ RETURNING *;
 -- name: GetTransfer :one
 SELECT * FROM transfers WHERE id = $1 LIMIT 1;
 
--- name: GetTranfers :many
+-- name: GetListTransfers :many
 SELECT * FROM transfers ORDER BY id;

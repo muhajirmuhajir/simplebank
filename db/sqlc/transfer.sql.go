@@ -37,12 +37,12 @@ func (q *Queries) CreateTransfer(ctx context.Context, arg CreateTransferParams) 
 	return i, err
 }
 
-const getTranfers = `-- name: GetTranfers :many
+const getListTransfers = `-- name: GetListTransfers :many
 SELECT id, from_account_id, to_account_id, amount, created_at FROM transfers ORDER BY id
 `
 
-func (q *Queries) GetTranfers(ctx context.Context) ([]Transfer, error) {
-	rows, err := q.db.QueryContext(ctx, getTranfers)
+func (q *Queries) GetListTransfers(ctx context.Context) ([]Transfer, error) {
+	rows, err := q.db.QueryContext(ctx, getListTransfers)
 	if err != nil {
 		return nil, err
 	}
